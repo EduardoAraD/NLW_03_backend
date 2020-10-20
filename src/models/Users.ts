@@ -13,4 +13,10 @@ export default class Users {
 
     @Column()
     password: string;
+
+    @Column()
+    passwordResetToken: string;
+
+    @Column()
+    passwordResetExpires: Date;
 }
