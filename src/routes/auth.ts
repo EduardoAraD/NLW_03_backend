@@ -7,5 +7,7 @@ const routes = Router();
 
 routes.post('/login', UserController.signIn)
 routes.post('/signup', UserController.signUp)
+routes.post('/forgot_password', UserController.forgotPassword)
+routes.post('/reset_password', UserController.resetPassword)
 
 export default routes;
