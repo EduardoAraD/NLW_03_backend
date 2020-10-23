@@ -10,7 +10,7 @@ const routes = Router();
 const upload = multer(uploadConfig);
 // index, show, create, update, delete
 
-routes.use(auth)
+//routes.use(auth)
 routes.get('/orphanages', OrphanagesController.index);
 routes.get('/orphanages/:id', OrphanagesController.show);
 routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
