@@ -160,5 +160,15 @@ export default {
         }
 
         return response.status(200).json(orphanage);
+    },
+
+    async delete(request: Request, response: Response) {
+        const { id } = request.params
+
+        const orphanagesRepository = getRepository(Orphanage);
+
+        await orphanagesRepository.delete( id )
+
+        response.send()
     }
 }
