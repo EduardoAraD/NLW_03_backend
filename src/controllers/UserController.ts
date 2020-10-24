@@ -119,7 +119,7 @@ export default {
             if (!user)
                 return response.status(400).send({ error: 'User not found' })
 
-            const token = crypto.randomBytes(20).toString('hex');
+            const token = crypto.randomBytes(10).toString('hex');
             const now = new Date();
             now.setHours(now.getHours() + 1)
 
@@ -131,7 +131,8 @@ export default {
             mailer.sendMail({
                 to: email,
                 from: 'araujocarlos893@gmail.com',
-                html: `<p>Você esqueceu sua senha? Não tem problema, utilize esse token: ${ token }</p>`,
+                html: `<p>Você esqueceu sua senha? Não tem problema, acesse clicando
+                <a href="http://localhost:3000/reset-password/${token}">aqui</a></p>`,
             }, (err) => {
                 if (err) {
                     return response.status(400).send({ error: 'Cannot send forgot password email' })
@@ -146,12 +147,17 @@ export default {
     },
 
     async resetPassword(request: Request, response: Response) {
-        const { email, token, password } = request.body;
+        const { token, password, confirmPassword } = request.body;
 
         try {
+
+            if(password !== confirmPassword) {
+                return response.status(400).send({ error: 'Password and confirmPassword are different' })
+            }
+
             const usersRepository = getRepository(Users)
 
-            const user = await usersRepository.findOne({ email })
+            const user = await usersRepository.findOne({ passwordResetToken: token})
 
             if (!user)
                 return response.status(400).send({ error: 'User not found' })
