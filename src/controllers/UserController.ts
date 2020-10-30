@@ -8,7 +8,6 @@ import crypto from 'crypto'
 import Users from '../models/Users'
 import UserView from '../views/user_view'
 import { transport as mailer } from '../modules/mailer'
-//const mailer = require('../modules/mailer');
 const env = require('../../.env');
 
 const emailRegex = /\S+@\S+\.\S+/
@@ -130,9 +129,10 @@ export default {
 
             mailer.sendMail({
                 to: email,
-                from: 'araujocarlos893@gmail.com',
+                from: 'duarte31.teste@gmail.com',
+                subject: 'Recuperação de Senha',
                 html: `<p>Você esqueceu sua senha? Não tem problema, acesse clicando
-                <a href="http://localhost:3000/reset-password/${token}">aqui</a></p>`,
+                <a href="http://localhost:3000/reset-password/${token}">aqui</a>.</p>`,
             }, (err) => {
                 if (err) {
                     return response.status(400).send({ error: 'Cannot send forgot password email' })

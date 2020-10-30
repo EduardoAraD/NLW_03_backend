@@ -2,12 +2,12 @@ import nodemailer from 'nodemailer';
 const hbs = require('nodemailer-express-handlebars');
 import path from 'path';
 
-const { host, port, user, pass } = require('../config/mail.json')
+import mail from '../config/mail'
 
 export const transport = nodemailer.createTransport({
-    host,
-    port,
-    auth: { user, pass }
+    service: 'gmail',
+    host: mail.host,
+    auth: { user: mail.user, pass: mail.pass }
 });
 
 transport.use('compile', hbs({
