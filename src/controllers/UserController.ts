@@ -131,7 +131,7 @@ export default {
                 from: 'duarte31.teste@gmail.com',
                 subject: 'Recuperação de Senha',
                 html: `<p>Você esqueceu sua senha? Não tem problema, acesse clicando
-                <a href="${process.env.APP_URL}/reset-password/${token}">aqui</a>.</p>`,
+                <a href="http://localhost:3000/reset-password/${token}">aqui</a>.</p>`,
             }, (err) => {
                 if (err) {
                     return response.status(400).send({ error: 'Cannot send forgot password email' })
