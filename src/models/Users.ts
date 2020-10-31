@@ -18,5 +18,5 @@ export default class Users {
     passwordResetToken: string;
 
     @Column()
-    passwordResetExpires: Date;
+    passwordResetExpires: string;
 }

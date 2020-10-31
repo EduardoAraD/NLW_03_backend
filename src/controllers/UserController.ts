@@ -72,8 +72,8 @@ export default {
             name: data.name,
             email: data.email,
             password: passwordHash,
-            passwordResetToken: '',
-            passwordResetExpires: now,
+            passwordResetToken: '23/45',
+            passwordResetExpires: now.toString(),
         }
 
         const user = usersRepository.create(userData)
@@ -123,7 +123,7 @@ export default {
 
             await usersRepository.update(user.id, {
                 passwordResetToken: token,
-                passwordResetExpires: now,
+                passwordResetExpires: now.toString(),
             })
 
             mailer.sendMail({
@@ -164,10 +164,10 @@ export default {
             if (token !== user.passwordResetToken)
                 return response.status(400).send({ error: 'Token invalid' })
 
-            const now = new Date();
+            //const now = new Date();
 
-            if (now > user.passwordResetExpires)
-                return response.status(400).send({ error: 'Token expired, generate a new one' })
+            //if (now > user.passwordResetExpires)
+            //    return response.status(400).send({ error: 'Token expired, generate a new one' })
 
             const salt = bcrypt.genSaltSync()
             const passwordHash = bcrypt.hashSync(password, salt)
