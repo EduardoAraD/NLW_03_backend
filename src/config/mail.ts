@@ -1,7 +1,5 @@
-const env = require('../../.env');
-
 export default {
     host: "smtp.gmail.com",
-    user: env.email,
-    pass: env.pass
+    user: process.env.EMAIL,
+    pass: process.env.PASS
 }

@@ -8,7 +8,6 @@ import crypto from 'crypto'
 import Users from '../models/Users'
 import UserView from '../views/user_view'
 import { transport as mailer } from '../modules/mailer'
-const env = require('../../.env');
 
 const emailRegex = /\S+@\S+\.\S+/
 
@@ -81,7 +80,7 @@ export default {
 
         await usersRepository.save(user)
 
-        const token = jwt.sign({ ...user }, env.authSecret, {
+        const token = jwt.sign({ ...user }, process.env.AUTHSECRET as string, {
             expiresIn: "1 day"
         })
 
@@ -99,7 +98,7 @@ export default {
         const user = await usersRepository.findOne({ email })
 
         if (user && bcrypt.compareSync(password, user.password)) {
-            const token = jwt.sign({ ...user }, env.authSecret, {
+            const token = jwt.sign({ ...user }, process.env.AUTHSECRET as string, {
                 expiresIn: "1 day"
             })
             response.json(UserView.render(user, token))

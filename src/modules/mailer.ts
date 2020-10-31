@@ -15,5 +15,3 @@ transport.use('compile', hbs({
     viewPath: path.resolve('./src/resources/mail/'),
     extName: '.html',
 }))
-
-//module.exports = transport;
