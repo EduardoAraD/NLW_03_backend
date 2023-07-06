@@ -1,5 +1,5 @@
 # NLW_03_backend
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/EduardoAraD/gameplay-nlw/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/EduardoAraD/NLW_03_backend/blob/main/LICENSE)
 
 # Sobre o projeto
 
