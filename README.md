@@ -3,9 +3,13 @@
 
 # Sobre o projeto
 
-**Happy** é um projeto que gerencia visitas a orfanatos na sua cidade.
+**Happy** é um projeto que gerencia visitas a orfanatos na sua cidade. O projeto é didivido em três repositórios, este é o back-end
 
 Esse projeto é foi realizado no evento NLW_#3 que está na sua 3° edição. Evento realizado pela [Rocketseat](https://www.rocketseat.com.br "Site da Rockeseat").
+
+## Links dos repositórios
+- Web https://github.com/EduardoAraD/NLW_03_Web
+- Mobile https://github.com/EduardoAraD/NLW_03_Mobile
 
 # Tecnologias utilizadas
 ## Back end
